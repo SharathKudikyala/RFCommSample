@@ -1,4 +1,4 @@
-package com.app.rfcommsample
+package com.app.rfcommsample.util
 
 import android.util.Log
 

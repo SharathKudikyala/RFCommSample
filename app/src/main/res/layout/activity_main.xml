@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
 
     <Button
         android:id="@+id/btnPeripheralMode"
@@ -27,15 +27,16 @@
         app:layout_constraintStart_toEndOf="@id/btnPeripheralMode"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ListView
-        android:id="@+id/listViewBluetoothDevices"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvBluetoothDevices"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="8dp"
+        app:layout_constraintBottom_toTopOf="@id/scrollView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent=".33"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnCentralMode" />
+
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -44,10 +45,10 @@
         android:layout_margin="8dp"
         android:fillViewport="true"
         app:layout_constraintBottom_toTopOf="@id/etMessage"
-        app:layout_constraintEnd_toEndOf="@id/listViewBluetoothDevices"
+        app:layout_constraintEnd_toEndOf="@id/rvBluetoothDevices"
         app:layout_constraintHeight_default="spread"
-        app:layout_constraintStart_toStartOf="@id/listViewBluetoothDevices"
-        app:layout_constraintTop_toBottomOf="@id/listViewBluetoothDevices">
+        app:layout_constraintStart_toStartOf="@id/rvBluetoothDevices"
+        app:layout_constraintTop_toBottomOf="@id/rvBluetoothDevices">
 
         <TextView
             android:id="@+id/tvLog"

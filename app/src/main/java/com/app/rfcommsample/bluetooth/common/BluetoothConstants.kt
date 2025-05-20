@@ -1,5 +1,5 @@
 // BluetoothConstants.kt
-package com.app.rfcommsample.util
+package com.app.rfcommsample.bluetooth.common
 
 import java.util.UUID
 

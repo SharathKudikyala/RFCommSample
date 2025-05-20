@@ -8,7 +8,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
-import com.app.rfcommsample.util.BluetoothConstants
+import com.app.rfcommsample.bluetooth.common.BluetoothConstants
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -36,7 +36,6 @@ class BluetoothCentralManager(
     private val coroutineScope = CoroutineScope(Dispatchers.Main + SupervisorJob())
     private var scanTimeoutJob: Job? = null
     private var isReceiverRegistered = false
-    private var connectionThread: Thread? = null
     private var connectJob: Job? = null
     private var socket: BluetoothSocket? = null
 
@@ -100,7 +99,8 @@ class BluetoothCentralManager(
         connectJob?.cancel()
         connectJob = coroutineScope.launch(Dispatchers.IO) {
             try {
-                socket = device.createInsecureRfcommSocketToServiceRecord(BluetoothConstants.APP_UUID)
+                socket =
+                    device.createInsecureRfcommSocketToServiceRecord(BluetoothConstants.APP_UUID)
                 bluetoothAdapter.cancelDiscovery() // must cancel discovery before connecting
                 socket?.connect()
 

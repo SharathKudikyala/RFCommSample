@@ -3,7 +3,7 @@ package com.app.rfcommsample.bluetooth.peripheral
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothServerSocket
 import android.bluetooth.BluetoothSocket
-import com.app.rfcommsample.util.BluetoothConstants
+import com.app.rfcommsample.bluetooth.common.BluetoothConstants
 import com.app.rfcommsample.util.Logger
 import java.io.IOException
 
